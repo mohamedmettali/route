@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import movies from "./movies";
+import moviesData from "./movies";
 import useFilter from "./useFilter";
 import ReactStars from "react-stars";
 import FormModal from "./FormModal";
@@ -20,7 +20,7 @@ function App() {
     minStarsFilter,
     setTitleFilter,
     setMinStarsFilter,
-  } = useFilter(movies);
+  } = useFilter(moviesData);
 
   const handleTitleChange = (event) => {
     setTitleFilter(event.target.value);
@@ -61,18 +61,22 @@ function App() {
             />
           </label>
         </div>
+     
 
-<MovieList movies={movies}/>
         <Routes>
           <Route
-            path="/movies/description/:id"
-            elemnet={<MovieDescription movies={movies} />}
+            path={"/movies/description/:id"}
+            element={<MovieDescription movies={movies} />}
           />
 
           <Route
-            path="/movies/trailer/:id"
-            element={<MovieTrailer movies={movies} />}
+            path={"/movies/trailer/:id"}
+            element={<MovieTrailer />}
           />
+           <Route
+            path={"/"} element={<MovieList  moviesData={moviesData}/>}
+          />
+         <Route path="/add" element={<FormModal addHandler={addHandler} />} />
         </Routes>
 
         <FormModal addHandler={addHandler} />

@@ -3,10 +3,8 @@ import ReactStars from 'react-stars';
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import MovieDescription from './MovieDescription';
-import MovieTrailer from './MovieTrailer';
 
-const MovieCard = ({ id, image, name, rating, date, type, seasons, description, trailer }) => {
+const MovieCard = ({ id, image, name, rating, date, type, seasons }) => {
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
@@ -26,8 +24,6 @@ const MovieCard = ({ id, image, name, rating, date, type, seasons, description, 
             <Link to={`/movies/description/${id}`}>Description</Link>
             |
             <Link to={`/movies/trailer/${id}`}>Trailer</Link>
-            <MovieDescription description={description} />
-            <MovieTrailer trailer={trailer} />
             <ReactStars
               count={5}
               value={rating}

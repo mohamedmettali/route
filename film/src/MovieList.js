@@ -1,13 +1,14 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const  MovieList = ({movieData}) => {
+const  MovieList = ({moviesData}) => {
    
   
     return (
 <div style={{ display: "flex", flexWrap: "wrap" }}>
-{movieData.map((movie) => (
+{moviesData.map((movie) => (
   <MovieCard key={movie.id} {...movie} />
+  
 ))}
 </div>
     )

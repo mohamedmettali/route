@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import {  Button,Col,Form,Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import ReactStars from 'react-stars';
+import { useNavigate } from 'react-router-dom';
 
 function FormModal({addHandler}) {
 
@@ -14,6 +15,7 @@ function FormModal({addHandler}) {
     const [type, settype] = useState('');
     const [seasons, setseasons] = useState('');
     const [description, setdescription] = useState('');
+    const navigate = useNavigate();
 
 
     const add =() => {
@@ -32,10 +34,12 @@ function FormModal({addHandler}) {
   
       function openModal() {
       setIsOpen(true);
+      navigate('/add');
     }
   
     function closeModal() {
       setIsOpen(false);
+      navigate('/');
     }
   
     return (

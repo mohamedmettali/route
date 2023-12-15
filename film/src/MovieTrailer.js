@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import moviesData from "./movies";
 
-const MovieTrailer = ({ movies }) => {
+const MovieTrailer = () => {
   const { id } = useParams();
-//   const movie = movies.find((movie) => movie.id === Number(id));
+
+ const movie = moviesData.find((movie) => movie.id === Number(id));
 
 
 
@@ -14,7 +16,7 @@ const MovieTrailer = ({ movies }) => {
         title="movie-trailer"
         width="560"
         height="315"
-        // src={movie.trailer}
+        src={movie.trailer}
         frameBorder="0"
         allowFullScreen
       ></iframe>
